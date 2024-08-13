@@ -24,7 +24,7 @@ export class UserLogin {
             body : JSON.stringify(data) //Acá convertimos el objeto data a JSON
         });
 
-        //Manejo de errores 
+        //Manejo de errores y de versiones de usuario, la verdad nisiquiera se que estoy escribiendo.
         //Si la respuesta es diferente de 201, arrojamos el error
         if (response.status != 201) {
             throw new Error('no se pudo iniciar sesión');
