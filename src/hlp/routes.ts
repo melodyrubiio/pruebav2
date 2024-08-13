@@ -1,6 +1,6 @@
-import { HomeView } from "../views";
-import { LoginView } from "../views/public/login_view/loginView";
-import { RegisterView } from "../views/public/register_view/registeView";
+import { HomeView } from "../views/private/homeview";
+import { LoginView } from "../views/public/loginview";
+import { RegisterView } from "../views/public/register.view";
 
 export const Routes = {
     public: [

@@ -60,9 +60,8 @@
     margin-bottom: 20px;
     font-size: 40px;
     background: linear-gradient(to right, #01438a, #0070cb);
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-  }
+  
+    }
   
   /* Spinner */
   #loading-spinner{
