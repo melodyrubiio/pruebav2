@@ -60,8 +60,8 @@
     margin-bottom: 20px;
     font-size: 40px;
     background: linear-gradient(to right, #01438a, #0070cb);
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
   }
   
   /* Spinner */
