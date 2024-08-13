@@ -1,0 +1,36 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 100px;
+    background: linear-gradient(to right, #0058b6, #00a6ff);
+    color: #fff;
+}
+
+.header-title{
+    font-size: 60px;
+}
+
+.header-buttons{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn_header{
+    width: 150px;
+    height: 50px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #0003a4;
+    transition: background-color 0.3s ease;
+}
+
+.btn_header:hover{
+    background-color: #5255ff;
+}
