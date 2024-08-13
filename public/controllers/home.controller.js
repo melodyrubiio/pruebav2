@@ -7,8 +7,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { Card } from "./card.controller";
-import { PostController } from "./post.controller";
+import { Card } from "./";
+import { PostController } from "./deletepost.controller";
 const logoutButton = document.querySelector("#logout");
 const session = sessionStorage.getItem('token');
 const url = 'https://api-posts.codificando.xyz/posts';

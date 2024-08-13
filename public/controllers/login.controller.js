@@ -7,31 +7,39 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-//Creamos la clase PageController, que tendrá la funcionalidad del log in
-export class UserLogin {
-    // Creamos el constructor y como parámetro la URL base para las peticiones
-    constructor(url) {
-        this.url = url;
-    }
-    //Método asíncrónico para el inicio de sesión
-    //Recibe los datos de inicio de sesión (data) y el endpoint
-    login(data) {
+export class LoginController {
+    postLogin(data) {
         return __awaiter(this, void 0, void 0, function* () {
-            const response = yield fetch(`${this.url}`, {
+            const headers = {
+                'Content-Type': 'application/json'
+            };
+            const reqOptions = {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'Application/json'
-                },
-                body: JSON.stringify(data) //Acá convertimos el objeto data a JSON
-            });
-            //Manejo de errores y de versiones de usuario, la verdad nisiquiera se que estoy escribiendo.
-            //Si la respuesta es diferente de 201, arrojamos el error
-            if (response.status != 201) {
-                throw new Error('no se pudo iniciar sesión');
+                headers: headers,
+                body: JSON.stringify(data)
+            };
+            const url = 'https://api-posts.codificando.xyz/auth/login';
+            const result = yield fetch(url, reqOptions);
+            const response = yield result.json();
+            const ResMessage = response.message;
+            console.log(response.message);
+            if (ResMessage === "Login successful") {
+                alert('Login exitoso');
             }
-            // Convertimos la respuesta en formato JSON a un objeto IResponseLogin
-            const token = yield response.json();
-            return token;
+            else if (ResMessage === "Invalid email or password") {
+                alert('Usuario o contraseña incorrecto');
+                throw new Error("Conexion fallida");
+            }
+            else {
+                alert('Usuario o contraseña incorrecto');
+                throw new Error("Conexion fallida");
+            }
+            const email = data.email;
+            sessionStorage.setItem('email', email);
+            // const token = userData.token;
+            // const id = userData.id;
+            // sessionStorage.setItem('id', id);
+            // sessionStorage.setItem('token', token);
         });
     }
 }

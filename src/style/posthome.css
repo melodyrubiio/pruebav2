@@ -1,0 +1,93 @@
+/* Estilos generales para el contenedor de la lista de ciudades */
+#cities-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+/* Estilos para cada tarjeta de ciudad */
+#cities-list li {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#cities-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para el contenedor de cada ciudad */
+.city-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Estilos para el nombre de la ciudad */
+.city-name {
+    font-size: 1.5em;
+    margin: 0;
+    color: #333;
+}
+
+/* Estilos para el país de la ciudad */
+.city-country {
+    font-size: 1.2em;
+    color: #666;
+    margin: 5px 0;
+}
+
+/* Estilos para la descripción de la ciudad */
+.city-description {
+    margin: 10px 0;
+    color: #555;
+}
+
+/* Estilos para la temperatura */
+.city-temperature {
+    font-size: 1.1em;
+    color: #ff5722;
+    margin: 10px 0;
+}
+
+/* Estilos para los botones */
+.button-delete-city,
+.button-edit-city {
+    padding: 8px 12px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Estilo para el botón de eliminar */
+.button-delete-city {
+    background-color: #e53935;
+}
+
+/* Estilo para el botón de eliminar en hover */
+.button-delete-city:hover {
+    background-color: #c62828;
+}
+
+/* Estilo para el botón de editar */
+.button-edit-city {
+    background-color: #1e88e5;
+}
+
+/* Estilo para el botón de editar en hover */
+.button-edit-city:hover {
+    background-color: #1976d2;
+}

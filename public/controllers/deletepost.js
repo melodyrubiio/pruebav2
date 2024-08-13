@@ -7,33 +7,25 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-export class RegisterController {
-    postRegister(data) {
+export class DeletePost {
+    deleteBook(id) {
         return __awaiter(this, void 0, void 0, function* () {
+            const email = sessionStorage.getItem('email');
             const headers = {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'x-user-email': `${email}`
             };
             const reqOptions = {
-                method: 'POST',
+                method: 'DELETE',
                 headers: headers,
-                body: JSON.stringify(data)
             };
-            const url = 'https://api-posts.codificando.xyz/users/register';
+            const url = `https://api-posts.codificando.xyz/posts/${id}`;
             const result = yield fetch(url, reqOptions);
-            yield result.json().then(data => {
-                sessionStorage.setItem('id', data.id);
-            });
-            console.log(result.status);
-            if (result.status === 201) {
-                alert('Registro exitoso');
-            }
-            else if (result.status === 500) {
-                alert('No autorizado');
+            if (result.status !== 200) {
                 throw new Error("Conexion fallida");
             }
             else {
-                alert('Usuario o contraseña incorrecto');
-                throw new Error("Conexion fallida");
+                alert("Post eliminado");
             }
         });
     }

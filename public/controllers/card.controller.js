@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import { PostController } from "./post.controller";
 export const Card = (props) => {
-    let { id, title, body, platform, multimediaUrl } = props;
+    let { Id, title, body, platform, multimediaUrl } = props;
     const cardContainer = document.createElement("article");
     cardContainer.className = "card-container";
     const img = document.createElement("img");
@@ -37,7 +37,7 @@ export const Card = (props) => {
         // Almacena el ID de la ciudad para actualizar
         const postIdInput = document.querySelector("#post-id");
         if (postIdInput) {
-            postIdInput.value = String(id); // Convertimos el id a string
+            postIdInput.value = String(Id); // Convertimos el id a string
         }
     });
     const deleteButton = document.createElement("button");
@@ -49,8 +49,8 @@ export const Card = (props) => {
         if (confirmDelete) {
             try {
                 const citiesController = new PostController(url);
-                yield citiesController.deletePost(`${url}`, `${id}`);
-                console.log(`${citiesController.deletePost(`${url}`, `${id}`)}`);
+                yield citiesController.deletePost(`${url}`, `${Id}`);
+                console.log(`${citiesController.deletePost(`${url}`, `${Id}`)}`);
                 cardContainer.remove();
             }
             catch (error) {

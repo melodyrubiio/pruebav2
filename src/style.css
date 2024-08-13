@@ -1,0 +1,90 @@
+/* login */
+
+/* Estilos para el contenedor del formulario */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupa toda la altura de la vista */
+    background-color: #0000008b; /* Color de fondo suave */
+  }
+  
+  .login-form, .register-form {
+    background-color: #fff; /* Fondo blanco para el formulario */
+    padding: 20px;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    width: 100%;
+    max-width: 400px; /* Ancho máximo del formulario */
+  }
+  
+  .form-label {
+    display: block;
+    margin-bottom: 8px; /* Espacio debajo de la etiqueta */
+    font-weight: bold; /* Negrita para las etiquetas */
+  }
+  
+  .form-input {
+    width: 100%; /* Ancho completo del campo de entrada */
+    padding: 8px;
+    margin-bottom: 16px; /* Espacio debajo del campo de entrada */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 4px; /* Bordes redondeados para los campos de entrada */
+    box-sizing: border-box; /* Incluye el padding y borde en el ancho total */
+  }
+  
+  .form-input:focus {
+    border-color: #007bff; /* Color del borde al enfocar el campo */
+    outline: none; /* Quitar el contorno predeterminado del navegador */
+  }
+  
+  .form-button {
+    width: 100%; /* Ancho completo del botón */
+    margin: 5px;
+    padding: 10px;
+    background: linear-gradient(to right, #0058b6, #00bfff); /* Color de fondo azul */
+    color: #fff; /* Color del texto blanco */
+    border: none; /* Quitar el borde predeterminado */
+    border-radius: 4px; /* Bordes redondeados para el botón */
+    font-size: 16px;
+    cursor: pointer; /* Cursor de mano al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+  }
+  
+  .form-button:hover {
+    background-color: #0056b3; /* Color de fondo azul oscuro al pasar el cursor */
+  }
+  
+  .form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 40px;
+    background: linear-gradient(to right, #01438a, #0070cb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* Spinner */
+  #loading-spinner{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.187);
+    border: none;
+  }
+  
+  .spinner {
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #003cff;
+    width: 50px; height: 50px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

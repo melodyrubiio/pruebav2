@@ -1,8 +1,4 @@
-export interface Ilogin {
-    email:    string;
+export interface BodyRequestLogin {
+    email: string;
     password: string;
-}
-
-export interface IResponseLogin {
-    token : string 
 }

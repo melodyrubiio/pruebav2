@@ -1,37 +1,42 @@
-//Creamos el archivo page.controller, que tiene como objetivo manejar el login
-//Importamos la interfaces necesarias para el log in
-import { Ilogin, IResponseLogin } from "../models/login.model";
+import { BodyRequestLogin } from "../models/login.model";
 
+export class LoginController {
 
-//Creamos la clase PageController, que tendrá la funcionalidad del log in
-export class UserLogin {
-    url : string;
-
-    // Creamos el constructor y como parámetro la URL base para las peticiones
-    constructor(url : string) {
-        this.url = url;
-    }
-
-
-    //Método asíncrónico para el inicio de sesión
-    //Recibe los datos de inicio de sesión (data) y el endpoint
-    async login(data : Ilogin) : Promise<IResponseLogin> { 
-        const response = await fetch(`${this.url}`, {
-            method : 'POST',
-            headers : {
-                'Content-Type' : 'Application/json'
-            },
-            body : JSON.stringify(data) //Acá convertimos el objeto data a JSON
-        });
-
-        //Manejo de errores y de versiones de usuario, la verdad nisiquiera se que estoy escribiendo.
-        //Si la respuesta es diferente de 201, arrojamos el error
-        if (response.status != 201) {
-            throw new Error('no se pudo iniciar sesión');
+    async postLogin(data: BodyRequestLogin): Promise<void> {
+        const headers: Record<string, string> = {
+            'Content-Type': 'application/json'
         }
 
-        // Convertimos la respuesta en formato JSON a un objeto IResponseLogin
-        const token : IResponseLogin = await response.json();
-        return token;
+        const reqOptions: RequestInit = {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(data)
+        }
+
+
+        const url = 'https://api-posts.codificando.xyz/auth/login';
+        const result = await fetch(url, reqOptions);
+
+        const response = await result.json();
+        const ResMessage = response.message;
+        console.log(response.message);
+
+        if (ResMessage === "Login successful") {
+            alert('Login exitoso');
+        } else if (ResMessage === "Invalid email or password") {
+            alert('Usuario o contraseña incorrecto');
+            throw new Error("Conexion fallida");
+        } else {
+            alert('Usuario o contraseña incorrecto');
+            throw new Error("Conexion fallida");
+        }
+
+        const email = data.email;
+        sessionStorage.setItem('email', email);
+        // const token = userData.token;
+        // const id = userData.id;
+        // sessionStorage.setItem('id', id);
+        // sessionStorage.setItem('token', token);
+
     }
 }
