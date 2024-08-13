@@ -1,42 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log In</title>
-    <link rel="stylesheet" href="../style/style.css">
-</head>
-<body>
-  <header>
-    <nav>
-      <div id="nav-title">
-          <h1><a href="">Data Leaker Gates</a></h1>
-      </div>
-      <div id="nav-options">
-          <ul>
-            <li>
-              <a href="/src/views/login.html">Log In</a>
-            </li>
+import { Routes } from "../hlp/routes";
 
-            <li>
-              <a href="/src/views/register.html">Registro</a>
-            </li>
-          </ul>
-      </div>
-    </nav>
-  </header>
-    <main>
-        <form id="loginForm">
-          <h1>Log In</h1>
-          <input type="email" id="emailUser" placeholder="Email">
-          <input type="password" id="passwordUser" placeholder="Contraseña">
-          <button type="submit">Enviar</button>
-        </form>
-        <div id="loading" style="display: none;">
-          <img src="https://cdn.pixabay.com/animation/2023/11/14/18/27/18-27-25-79_512.gif" alt="Cargando...">
-        </div>
-      </main>
+export function router() {
+    
+    const path = window.location.pathname;
+    const publicRoute = Routes.public.find(route => route.path === path);
+    const privateRoute = Routes.private.find(route => route.path === path);
 
-      <script type="module" src="/src/ts/login.ts"></script>
-</body>
-</html>
+    //*Si la ruta no es publica ni privada */
+    if (!publicRoute && !privateRoute && path !== '/') {
+        alert('Pagina no encontrado');
+        navigateTo('/Login');
+        return;
+    }
+
+    const email = sessionStorage.getItem('email');
+
+    //*Si esta accediendo a la ruta pricipal y no tiene email */
+    if (path === '/' && !email) {
+        navigateTo('/Login');
+        return;
+    }
+
+    //*Si esta accediendo a la ruta pricipal y tiene email */
+
+    if (path === '/' && email) {
+        navigateTo('/home');
+        return;
+    }
+
+    //*Rutas publicas */
+
+    if (publicRoute) {
+        if((path === '/Login' || path === '/Register') && email){ 
+            navigateTo('/home');
+            return;
+        }else{
+            publicRoute.component();
+            return;
+        }
+    }
+
+    //*Rutas privadas */
+
+    if (privateRoute) {
+        if(email){
+            privateRoute.component();
+            return;
+        }else{
+            navigateTo('/Login');
+            return;
+        }
+    }
+
+
+}
+
+export function navigateTo(path: string):void {
+    window.history.pushState({}, "", window.location.origin + path);
+    router();
+}
