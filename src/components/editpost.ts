@@ -1,4 +1,4 @@
-import "./edit_post.css";
+import "../style/editpost.css";
 
 export function EditPost() {
     const dialog = document.createElement('dialog');

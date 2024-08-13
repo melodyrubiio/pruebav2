@@ -1,4 +1,4 @@
-/* Estilos generales para la página de ciudades */
+
 .cities-home {
     font-family: Arial, sans-serif;
     padding: 20px;
@@ -12,12 +12,12 @@
     color: #333;
   }
   
-  /* Estilos para la lista de ciudades */
+  
   .cities-home-list {
     margin-top: 20px;
   }
   
-  /* Estilos para el diálogo de creación de ciudad */
+  
   #create-city-dialog {
     border: none;
     border-radius: 8px;

@@ -1,7 +1,7 @@
 import { CreatePostController } from "../controllers/addpost.controller";
 import { navigateTo } from "../router";
-import { CreatePost } from "./create_post";
-import "./header_home.css";
+import { CreatePost } from "./addpost";
+import "../style/headerhome.css";
 
 export function HeaderHome() {
 

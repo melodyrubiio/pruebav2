@@ -7,11 +7,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { EditPostController } from "../controllers/Edit_post_controller";
-import { DeletePost } from "../controllers/delete_post_controller";
-import { GetPostsController } from "../controllers/get_allposts_controller";
-import { EditPost } from "./edit_post";
-import './post_home.css';
+import { EditPostController } from "../controllers/editpost.controller";
+import { DeletePost } from "../controllers/deletepost.controller";
+import { GetPostsController } from "../controllers/getallpost";
+import { EditPost } from "../components/editpost";
+import '../style/posthome.css';
 export function PostHome() {
     const html = `
     <div class="cities-home">

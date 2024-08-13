@@ -4,7 +4,7 @@
     align-items: center;
     padding: 0 20px;
     height: 100px;
-    background: linear-gradient(to right, #0058b6, #00a6ff);
+    background: linear-gradient(to right, #ddb78b, #eba750);
     color: #fff;
 }
 
@@ -26,11 +26,11 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    color: #fff;
-    background-color: #0003a4;
+    color: #fc8321;
+    background-color: #f7f1ec;
     transition: background-color 0.3s ease;
 }
 
 .btn_header:hover{
-    background-color: #5255ff;
+    background-color: #d4780d;
 }

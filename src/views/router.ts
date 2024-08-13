@@ -6,7 +6,7 @@ export function router() {
     const publicRoute = Routes.public.find(route => route.path === path);
     const privateRoute = Routes.private.find(route => route.path === path);
 
-    //*Si la ruta no es publica ni privada */
+    
     if (!publicRoute && !privateRoute && path !== '/') {
         alert('Pagina no encontrado');
         navigateTo('/Login');
@@ -15,20 +15,20 @@ export function router() {
 
     const email = sessionStorage.getItem('email');
 
-    //*Si esta accediendo a la ruta pricipal y no tiene email */
+    
     if (path === '/' && !email) {
         navigateTo('/Login');
         return;
     }
 
-    //*Si esta accediendo a la ruta pricipal y tiene email */
+    
 
     if (path === '/' && email) {
         navigateTo('/home');
         return;
     }
 
-    //*Rutas publicas */
+    
 
     if (publicRoute) {
         if((path === '/Login' || path === '/Register') && email){ 
@@ -40,7 +40,7 @@ export function router() {
         }
     }
 
-    //*Rutas privadas */
+   
 
     if (privateRoute) {
         if(email){
